@@ -1,0 +1,9 @@
+p {
+    display: block;
+    background-color: green;
+    font-size: 100px;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}

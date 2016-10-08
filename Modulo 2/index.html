@@ -3,16 +3,17 @@
 
 <head>
 	<title>Diplomado App</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script type="text/javascript">
 		function showName(){
 			alert("hola "+document.getElementById("name").value);
-			document.getElementById("visor").add("hola "+document.getElementById("name").value);
-			
+			document.getElementById("visor").innerHTML="<p>hola "+document.getElementById("name").value+"</p>";
+
 		}
 	</script>
 </head>
 <body>
-	    <h2> Hola diplomado </h2>
+	    <header><h2> Hola diplomado </h2></header>
 	    
 	        <label>Ingrese su nombre</label>
 	    	<div>
