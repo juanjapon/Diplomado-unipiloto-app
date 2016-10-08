@@ -2,10 +2,16 @@ p {
     display: block;
     background-color: green;
     font-size: 100px;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
+    text-align: center;
+    -webkit-margin-before: 2em;
+    -webkit-margin-after: 2em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
+
+}
+p:hover {
+    background-color:red;
+    font-size: 120px;
 }
 header {
 	margin-top: 20px;
