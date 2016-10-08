@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Diplomado App</title>
+	<script type="text/javascript">
+		function showName(){
+			alert("hola "+document.getElementById("name").value);
+			document.getElementById("visor").add("hola "+document.getElementById("name").value);
+			
+		}
+	</script>
+</head>
+<body>
+	    <h2> Hola diplomado </h2>
+	    
+	        <label>Ingrese su nombre</label>
+	    	<div>
+	    	<input type="text" name="name" id="name">
+	    	<input type="button" name="boton" onclick="showName()" value="Enviar nombre">
+	    	</div>
+	    	<div>
+	    		<label id="visor"></label>
+	    	</div>
+	    
+
+	    		<footer>
+		<center>footer del diplomado</center>
+		</footer>
+</body>
+
+
+</html>
