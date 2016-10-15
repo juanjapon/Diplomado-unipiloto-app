@@ -16,4 +16,4 @@ console.log("habilidad: "+this.habilidad);
 };
 
 
-Carro.mostrarDatos;
+deportivo.mostrarDatos;

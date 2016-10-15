@@ -7,13 +7,13 @@ for (var i = array.length - 1; i >= 0; i--) {
 
 //recorre  adelante atras
 for (var i = 0; i < array.length; i++) {
-	alert(array[i]);
+	console.log(array[i]);
 }
 
 //buscar variable
 var elementoBuscado;
 for (var i = 0; i < array.length; i++) {
 	if(array[i]===elementoBuscado){
-		alert(array[i]);
+		console.log(array[i]);
 	}
 }

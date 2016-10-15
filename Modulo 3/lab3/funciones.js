@@ -1,9 +1,9 @@
 //funcion anonima
 function(){
-	alert("se muestra este mensaje");
+	console.log("se muestra este mensaje");
 }
 
 //funcion declarada
 function mostrarMensaje(mensaje){
-	alert(mensaje);
+	console.log(mensaje);
 }
