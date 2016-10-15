@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Diplomado App</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!--<link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="skeleton.css">-->
+	<script type="text/javascript">
+		function showName(){
+			alert("hola "+document.getElementById("name").value);
+			document.getElementById("visor").innerHTML="<p>hola "+document.getElementById("name").value+"</p>";
+
+		}
+	</script>
+</head>
+<body>
+	    <header><h2> Hola diplomado </h2></header>
+	    
+	        <label>Ingrese su nombre</label>
+	    	<div>
+	    	<input type="text" name="name" id="name">
+	    	<input type="button" name="boton" onclick="showName()" value="Enviar nombre">
+	    	</div>
+	    	<div class="Cvisor">
+	    		<label id="visor"></label>
+	    	</div>
+	    
+
+	    		<footer>
+		<center>footer del diplomado</center>
+		</footer>
+</body>
+
+
+</html>
