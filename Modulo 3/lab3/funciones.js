@@ -1,7 +1,7 @@
 //funcion anonima
-function(){
+(function (){
 	console.log("se muestra este mensaje");
-}
+}());
 
 //funcion declarada
 function mostrarMensaje(mensaje){

@@ -9,11 +9,9 @@ var deportivo= new Carro("ferrari",[2,4],"xvy249");
 
 Carro.prototype.habilidad="rapido";
 Carro.prototype.mostrarDatos=function(){
-console.log("marca: "+this.marca);
-console.log("ancho: "+this.tamaño[0]+" largo: "+this.tamaño[1]);
-console.log("placa: "+this.placa);
-console.log("habilidad: "+this.habilidad);
+return"marca: "+this.marca+"ancho: "+this.tamaño[0]+" largo: "+this.tamaño[1]+"placa: "+this.placa+"habilidad: "+this.habilidad;
+
 };
 
 
-deportivo.mostrarDatos;
+console.log(deportivo.mostrarDatos);
