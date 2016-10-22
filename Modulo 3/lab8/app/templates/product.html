@@ -1,0 +1,20 @@
+<h1>Calculadora de tarifa</h1>
+
+
+<div>
+<hr />
+    <label>Units: </label><br />
+    <input [(ngModel)]="ride.numUnits" placeholder="unidades"
+    (change)="run(ride)"><br />
+    <label>Festive </label>
+    <input type="checkbox" [(ngModel)]="ride.description" placeholder="festive"><br />
+    <label>Airport </label>
+    <input type="checkbox" [(ngModel)]="ride.type" placeholder="airport"><br />
+    <label>App </label>
+    <input type="checkbox" [(ngModel)]="ride.price" placeholder="app"><br />
+    <label>Total </label>
+    
+</div>
+<div *ngIf="ride">
+<h1>{{ride.total}}</h1><br />
+</div>
