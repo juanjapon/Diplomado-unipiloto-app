@@ -1,0 +1,50 @@
+import { Component } from '@angular/core';
+import { NavParams,NavController } from 'ionic-angular';
+import {ProductService} from '../../providers/product-service';
+import {Product} from '../../model/product';
+import {ProductEditionPage} from '../product-edition/product-edition';
+import { ProductCreatePage} from '../product-create/product-create';
+
+/*
+  Generated class for the ProductDetail page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+*/
+@Component({
+  selector: 'page-product-detail',
+  templateUrl: 'product-detail.html'
+})
+export class ProductDetailPage {
+
+	productArray:Product[];
+	product:Product;
+	id:number;
+
+  constructor(public navParams: NavParams,public navCtrl:NavController,private prodService: ProductService) {
+  	this.id=navParams.get('id');
+  	console.log(navParams);
+  	this.getProductDetail(this.id);
+  }
+
+  getProductDetail(id:number){
+  		this.prodService.getProductDetail(id).
+  		subscribe(
+  		response=>{console.log(response);this.productArray=response;},
+  		err=>{console.log(err)}
+  		) ;
+
+  		 }
+
+  edit(product:Product[]){
+  	this.navCtrl.push(ProductEditionPage,{productArray:product});
+  }
+  create(){
+    this.navCtrl.push(ProductCreatePage);
+  }
+
+  ionViewDidLoad() {
+    console.log('Hello ProductDetailPage Page');
+  }
+
+}

@@ -1,0 +1,52 @@
+<!--
+  Generated template for the ProductDetail page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Product-Detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<div *ngIf="productArray">
+	<ion-list>
+	<ion-item>
+    <ion-label color="primary">Name: </ion-label>
+    <ion-input  disabled="true" placeholder="name" [(ngModel)]="productArray.name" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label color="primary">Type: </ion-label>
+    <ion-input  disabled="true" placeholder="tipo" [(ngModel)]="productArray.type" type="text" ></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label color="primary">Quantity: </ion-label>
+    <ion-input disabled="true" placeholder="cantidad" [(ngModel)]="productArray.quantity" type="text" ></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label color="primary">Price: </ion-label>
+    <ion-input disabled="true" placeholder="precio" [(ngModel)]="productArray.price" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label color="primary">Latitude: </ion-label>
+    <ion-input disabled="true" placeholder="precio" [(ngModel)]="productArray.latitude" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label color="primary">Longitude: </ion-label>
+    <ion-input disabled="true" [(ngModel)]="productArray.longitude" placeholder="precio" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+    <button ion-button (click)="edit(productArray)">Editar</button>
+    <button ion-button (click)="delete(productArray)">Eliminar</button>
+    <button ion-button (click)="create(productArray)">Nuevo</button>
+    </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
