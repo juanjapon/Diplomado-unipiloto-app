@@ -4,6 +4,7 @@ import { Product } from '../../model/product';
 import { ProductService} from '../../providers/product-service';
 import { FormGroup,Validators,FormBuilder } from '@angular/forms';
 import { Geolocation } from 'ionic-native';
+import { AlertController } from 'ionic-angular';
 
 /*
   Generated class for the ProductCreate page.
@@ -30,11 +31,11 @@ export class ProductCreatePage {
     longitude : 0,
 }
 
-  constructor(public navCtrl: NavController,public formBuilder:FormBuilder,private prodService:ProductService) {
+  constructor(public navCtrl: NavController,public formBuilder:FormBuilder,private prodService:ProductService,public alertCtrl: AlertController) {
   	this.productForm=this.createProductForm();
   }
 
-  createProductForm(){
+  private createProductForm(){
   	return this.formBuilder.group({
   	  name: ['', [Validators.required, Validators.minLength(4)]],
       type: ['', [Validators.required, Validators.minLength(6)]],
@@ -44,8 +45,23 @@ export class ProductCreatePage {
   }
 
  saveProduct(){
- 	alert("guardando");
-    console.log(this.productForm.value);
+
+
+ 	         let confirm = this.alertCtrl.create({
+      title: 'Creando Producto',
+      message: 'Cofirma creación del producto '+this.productForm.value.name,
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Se cancelo la creación');
+          }
+        },
+        {
+          text: 'Ok',
+          handler: () => {
+
+
     this.product.name = this.productForm.value.name;
     this.product.type = this.productForm.value.type;
     this.product.quantity = this.productForm.value.quantity;
@@ -53,12 +69,20 @@ export class ProductCreatePage {
     this.product.latitude = this.lat;
     this.product.longitude = this.lng;
 
-    alert(this.product.name+'_'+this.product.type+'_'+this.product.quantity+this.product.price+'_'+this.product.latitude+this.product.longitude);
-
+    
     this.prodService.create(this.product)
       .subscribe(product => {
         console.log('product created');
       });
+          }
+        }
+      ]
+    });
+    confirm.present();
+    this.navCtrl.pop();
+ 	
+    
+
 
     this.navCtrl.pop();
   }
@@ -69,7 +93,7 @@ export class ProductCreatePage {
       this.lat = resp.coords.latitude;
       this.lng = resp.coords.longitude;
 
-      alert(this.lat+' _ '+this.lng);
+ 
     }).catch((error) => {
       console.log('Error getting location', error);
     });

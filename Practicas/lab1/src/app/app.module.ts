@@ -8,6 +8,7 @@ import { ProductService } from "../providers/product-service";
 import { ProductDetailPage } from '../pages/product-detail/product-detail';
 import { ProductEditionPage} from '../pages/product-edition/product-edition';
 import { ProductCreatePage } from '../pages/product-create/product-create';
+import { UserService } from '../providers/user-service';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,6 @@ import { ProductCreatePage } from '../pages/product-create/product-create';
     ProductEditionPage,
     ProductCreatePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},ProductService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},ProductService,UserService]
 })
 export class AppModule {}

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import {Product} from "../model/product";
-import {User} from "../model/user";
 import {Observable} from 'rxjs/Rx';
 import {Http, Headers} from "@angular/http";
 
@@ -32,6 +31,8 @@ export class ProductService {
   }
   
   	create(product:Product):Observable<Product[]>{
+  		console.log(JSON.stringify(product));
+  		console.log(this.headers);
         return this.http
             .post(this.productsURI+'create', JSON.stringify(product), {headers: this.headers})
             .map(res => res.json())
@@ -42,6 +43,15 @@ export class ProductService {
 
         let url = this.productsURI+'delete/'+product.id;
         return this.http.delete(url)
+            .map(() => product)
+            .catch(this.handleError);
+    }
+
+        update(product: Product): Observable<Product> {
+        let url = this.productsURI+'update/'+product.id;
+        let toAdd = JSON.stringify(product);
+        return this.http
+            .put(url, toAdd, {headers: this.headers})
             .map(() => product)
             .catch(this.handleError);
     }

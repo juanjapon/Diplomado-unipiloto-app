@@ -4,6 +4,7 @@ import {ProductService} from '../../providers/product-service';
 import {Product} from '../../model/product';
 import {ProductEditionPage} from '../product-edition/product-edition';
 import { ProductCreatePage} from '../product-create/product-create';
+import { AlertController } from 'ionic-angular';
 
 /*
   Generated class for the ProductDetail page.
@@ -21,10 +22,38 @@ export class ProductDetailPage {
 	product:Product;
 	id:number;
 
-  constructor(public navParams: NavParams,public navCtrl:NavController,private prodService: ProductService) {
+  constructor(public navParams: NavParams,public navCtrl:NavController,private prodService: ProductService,public alertCtrl: AlertController) {
   	this.id=navParams.get('id');
   	console.log(navParams);
   	this.getProductDetail(this.id);
+  }
+
+   delete(product: Product): void {
+         let confirm = this.alertCtrl.create({
+      title: '!Eliminar Producto¡',
+      message: 'Cofirma eliminar el producto '+product.name,
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Se cancelo la eliminación');
+          }
+        },
+        {
+          text: 'Ok',
+          handler: () => {
+      this.prodService.deleteProduct(product)
+      .subscribe(
+      response => { console.log(response)},
+      err => { console.log(err) });
+          }
+        }
+      ]
+    });
+    confirm.present();
+    this.navCtrl.pop();
+
+ 
   }
 
   getProductDetail(id:number){
@@ -46,5 +75,7 @@ export class ProductDetailPage {
   ionViewDidLoad() {
     console.log('Hello ProductDetailPage Page');
   }
+
+
 
 }
