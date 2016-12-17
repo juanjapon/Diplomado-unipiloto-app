@@ -19,10 +19,6 @@ export class UserService {
     console.log('Hello UserService Provider');
   }
 
-  	getUsers(): Observable<User[]> {
-	    return this.http.get(this.usersURI + '/list')
-	        .map(response => response.json() as User[])
-	        .catch(this.handleError);
-	}
+
 
 }
